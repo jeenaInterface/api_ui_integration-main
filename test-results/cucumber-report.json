@@ -1,0 +1,91 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "outlook-login-with-2fa;user-logs-into-outlook-with-two-factor-authentication",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "User logs into Outlook with two-factor authentication",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 363012799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user navigates to the Outlook login page",
+            "match": {
+              "location": "src\\test\\steps\\home_steps.ts:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5724431799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "the user enters valid credentials",
+            "match": {
+              "location": "src\\test\\steps\\home_steps.ts:15"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 18359990999,
+              "error_message": "page.waitForSelector: Target page, context or browser has been closed\nCall log:\n  - waiting for locator('text=Sign in another way') to be visible\n\n    at OutlookLoginPage.<anonymous> (C:\\api_ui_integration-main\\src\\pages\\HomePage.ts:44:21)\n    at step (C:\\api_ui_integration-main\\src\\pages\\HomePage.ts:33:23)\n    at Object.next (C:\\api_ui_integration-main\\src\\pages\\HomePage.ts:14:53)\n    at C:\\api_ui_integration-main\\src\\pages\\HomePage.ts:8:71\n    at __awaiter (C:\\api_ui_integration-main\\src\\pages\\HomePage.ts:4:12)\n    at OutlookLoginPage.chooseAuthenticatorOption (C:\\api_ui_integration-main\\src\\pages\\HomePage.ts:110:16)\n    at C:\\api_ui_integration-main\\src\\test\\steps\\home_steps.ts:18:21\n    at step (C:\\api_ui_integration-main\\src\\test\\steps\\home_steps.ts:33:23)\n    at Object.next (C:\\api_ui_integration-main\\src\\test\\steps\\home_steps.ts:14:53)\n    at fulfilled (C:\\api_ui_integration-main\\src\\test\\steps\\home_steps.ts:5:58)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "the user completes two-factor authentication",
+            "match": {
+              "location": "src\\test\\steps\\home_steps.ts:21"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "the user should be logged into Outlook",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "failed",
+              "duration": 3181300,
+              "error_message": "page.screenshot: Target page, context or browser has been closed\n    at World.<anonymous> (C:\\api_ui_integration-main\\src\\hooks\\hooks.ts:61:34)\n    at step (C:\\api_ui_integration-main\\src\\hooks\\hooks.ts:33:23)\n    at Object.next (C:\\api_ui_integration-main\\src\\hooks\\hooks.ts:14:53)\n    at C:\\api_ui_integration-main\\src\\hooks\\hooks.ts:8:71\n    at __awaiter (C:\\api_ui_integration-main\\src\\hooks\\hooks.ts:4:12)\n    at World.<anonymous> (C:\\api_ui_integration-main\\src\\hooks\\hooks.ts:119:12)"
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "outlook-login-with-2fa",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Outlook Login with 2FA",
+    "tags": [],
+    "uri": "src\\test\\features\\login2fa.feature"
+  }
+]
