@@ -1,6 +1,4 @@
-import { Given, When, Then } from '@cucumber/cucumber';
-import { expect } from '@playwright/test';
-
+import { Given, When } from '@cucumber/cucumber';
 import { authenticator } from 'otplib';
 import { OutlookLoginPage } from '../../pages/HomePage';
 import { fixture } from '../../hooks/pageFixture';
@@ -8,7 +6,7 @@ import { fixture } from '../../hooks/pageFixture';
 let outlookPage: OutlookLoginPage;
 
 Given('the user navigates to the Outlook login page', async () => {
-     outlookPage = new OutlookLoginPage(fixture.page);
+  outlookPage = new OutlookLoginPage(fixture.page);
   await outlookPage.navigate();
 });
 

@@ -1,26 +1,25 @@
-// src/pages/OutlookLoginPage.ts
 import { Page } from 'playwright';
-
 import { setDefaultTimeout } from '@cucumber/cucumber';
 
 setDefaultTimeout(60 * 1000);
-
 
 export class OutlookLoginPage {
   constructor(private page: Page) {}
 
   // Locators
   emailInput = 'input[type="email"]';
-  nextButton = '//input[@type="submit"]';
-  nextButton1 = '//button[@type="submit"]';
+  nextButton = 'input[type="submit"]';
+  nextButton1 = 'button[type="submit"]';
   passwordInput = 'input[type="password"]';
-  otpInput = '//input[@id="otc-confirmation-input"]';
+  otpInput = '#otc-confirmation-input';
   submitButton = 'input[type="submit"]';
-  verifyIdentityButton = '//button[@id="oneTimeCodePrimaryButton"]';
-  enterPasswordButton = "xpath=//*[@id='view']/div/span/div/span";
-  signInAnotherWayLink = 'text=Sign in another way'; // or use XPath if needed
+  verifyIdentityButton = '#oneTimeCodePrimaryButton';
+  enterPasswordButton = 'xpath=//*[@id="view"]/div/span/div/span';
+  signInAnotherWayLink = 'text=Other ways to sign in';
   authenticatorOption = 'text=Use an app to get a verification code';
-  link:"text=I can't use my Microsoft Authenticator app right now" // adjust based on actual label
+  fallbackLink = 'text=I can\'t use my Microsoft Authenticator app right now';
+    useYourPassword = 'text=Use your password';
+    
 
   // Actions
   async navigate() {
@@ -31,7 +30,8 @@ export class OutlookLoginPage {
     await this.page.waitForSelector(this.emailInput, { timeout: 10000 });
     await this.page.fill(this.emailInput, email);
     await this.page.click(this.nextButton);
-    await this.page.click(this.enterPasswordButton);
+    // await this.page.waitForSelector(this.enterPasswordButton, { timeout: 10000 });
+    await this.page.click(this.useYourPassword);
   }
 
   async enterPassword(password: string) {
@@ -41,10 +41,10 @@ export class OutlookLoginPage {
   }
 
   async chooseAuthenticatorOption() {
+        await this.page.waitForSelector(this.fallbackLink, { timeout: 10000 });
+    await this.page.click(this.fallbackLink);
     await this.page.waitForSelector(this.signInAnotherWayLink, { timeout: 10000 });
     await this.page.click(this.signInAnotherWayLink);
-    await this.page.click(this.link);
-
     await this.page.waitForSelector(this.authenticatorOption, { timeout: 10000 });
     await this.page.click(this.authenticatorOption);
   }
